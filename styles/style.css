@@ -1,0 +1,228 @@
+:root {
+  --primary-color: #da1a32;
+  --secondary-color: #a00c30;
+  --accent1-color: #FFF;
+  --accent2-color: #000;
+  --accent3-color: #acabab;
+  --accent4-color: #2c2b2b;
+  --accent5-color: #e4e4e4;
+  --accent6-color: #f7f7f7;
+  --text-font: 'Roboto', sans-serif;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+body {
+  font-family: var(--text-font);
+	font-size: 16px;
+  font-weight: 400;
+  color: var(--accent1-color);
+  background-color: var(--accent1-color);
+}
+h1 {
+  margin: 1rem 0;
+}
+h2 {
+  color: var(--secondary-color);
+  margin: 1rem 0;
+}
+h3 {
+  font-size: 1.3rem;
+  color: var(--accent1-color);
+  margin: 1rem 0;
+}
+p {
+  margin: 0.5rem 0;
+}
+button {
+  font-family: var(--text-font);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Header ***************/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--accent2-color);
+  color: var(--accent1-color);
+  padding: .25rem 5rem;
+  border-top: 7px solid var(--secondary-color);
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  height: 90px;
+  width: auto;
+  padding: .75rem 0;
+}
+
+/* Navigation ***************/
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  gap: 2rem;
+}
+nav ul li {
+  display: inline;
+}
+nav ul li a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent1-color);
+  text-decoration: none;
+}
+nav ul li a.active,
+nav ul li a:hover {
+  color: var(--primary-color);
+}
+nav .view-cart-button {
+  background-color: var(--primary-color);
+  color: var(--accent1-color);
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  text-decoration: none;
+}
+nav .view-cart-button:hover {
+  background-color: var(--accent2-color);
+  color: var(--primary-color);
+}
+#navigation-menu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+#navigation-menu.show::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00d";
+}
+#navigation-menu::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0c9";
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 64rem) {
+  #navigation-menu {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--accent1-color);
+    text-decoration: none;
+    position: absolute;
+    top: 35px;
+    right: 1rem;
+  }
+  .navigation {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 1000;
+  }
+  .navigation.show {
+    display: flex;
+  }
+  .navigation li {
+    display: block;
+    width: 100%;
+  }
+  .navigation a {
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+  }
+  nav ul {
+    gap: 0;
+  }
+}
+/* Main ***************/
+main {
+  flex: 1;
+  padding-bottom: 2rem;
+}
+
+/* Footer ***************/
+footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: .9rem;
+  color: var(--accent3-color);
+  background-color: var(--accent2-color);
+  padding: 3rem 5rem;
+}
+footer h3 {
+  color: var(--accent1-color);
+}
+.footer-info {
+  flex: 0 1 60%;
+  .footer-logo {
+    display: flex;
+    align-items: center;
+  }
+  .footer-logo img {
+    height: 70px;
+    width: auto;
+  }
+}
+.footer-social {
+  flex: 0 1 20%;
+  i {
+    padding-right: 0.75rem;
+  }
+}
+.footer-resources {
+  flex: 0 1 20%;
+}
+footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+footer ul li {
+  margin: 0.5rem 0;
+}
+footer ul li a {
+  text-decoration: none;
+  color: inherit;
+}
+footer ul li a:hover {
+  color: var(--primary-color);
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 64rem) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem;
+  }
+  .footer-info,
+  .footer-social,
+  .footer-resources {
+    flex: 0 1 100%;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .footer-info {
+    margin-bottom: 0.5rem;
+  }
+  .footer-social {
+    margin-bottom: 0.5rem;
+  }
+}
