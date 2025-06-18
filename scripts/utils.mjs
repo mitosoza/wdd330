@@ -92,20 +92,53 @@ export function alertMessage(message, scroll = true) {
   alert.innerHTML = `<p>${message}</p><span>X</span>`;
 
   // add a listener to the alert to see if they clicked on the X
-  alert.addEventListener('click', function(e) {
-      if(e.target.tagName == "SPAN") {
-        main.removeChild(this);
-      }
+  alert.addEventListener('click', function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
   })
   // add the alert to the top of main
   const main = document.querySelector('main');
   main.prepend(alert);
 
-  if(scroll)
-    window.scrollTo(0,0);
+  if (scroll)
+    window.scrollTo(0, 0);
 }
 
 export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
+}
+
+export function loadCarCards(carsList) {
+  const container = document.getElementById('car-cards-container');
+  if (!container) return;
+
+  container.innerHTML = '';
+  const rows = Math.ceil(carsList.length / 3);
+  for (let row = 0; row < rows; row++) {
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'car-row';
+    for (let col = 0; col < 3; col++) {
+      const car = carsList[row * 3 + col];
+      if (!car) continue;
+      const card = document.createElement('div');
+      card.className = 'car-card';
+      card.innerHTML = `
+        <div><img src="${car.image}" alt="${car.year} ${car.make} ${car.model}" loading="lazy"/></div>
+        <div class="car-title"><h2>${car.year} ${car.make} ${car.model}</h2></div>
+        <div class="car-field"><span class="car-label">Make</span><span class="car-value">${car.make}</span></div>
+        <div class="car-field"><span class="car-label">Model</span><span class="car-value">${car.model}</span></div>
+        <div class="car-field"><span class="car-label">Year</span><span class="car-value">${car.year}</span></div>
+        <div class="car-field"><span class="car-label">Type</span><span class="car-value">${car.type}</span></div>
+        <div class="car-field"><span class="car-label">Price</span><span class="car-value">$${car.price.toLocaleString()}</span></div>
+        <div class="car-field"><span class="car-label">Miles</span><span class="car-value">${car.miles.toLocaleString()}</span></div>
+        <div class="car-field"><span class="car-label">Transmission</span><span class="car-value">${car.transmission}</span></div>
+        <div class="car-field"><span class="car-label">Drivetrain</span><span class="car-value">${car.drivetrain}</span></div>
+        <div class="car-field"><span class="car-label">Title</span><span class="car-value">${car.title}</span></div>
+      `;
+      rowDiv.appendChild(card);
+    }
+    container.appendChild(rowDiv);
+  }
 }

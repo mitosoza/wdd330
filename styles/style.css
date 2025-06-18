@@ -9,7 +9,8 @@
   --accent6-color: #f7f7f7;
   --text-font: 'Roboto', sans-serif;
 }
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -17,21 +18,22 @@ html, body {
 }
 body {
   font-family: var(--text-font);
-	font-size: 16px;
+  font-size: 16px;
   font-weight: 400;
-  color: var(--accent1-color);
+  color: var(--accent2-color);
   background-color: var(--accent1-color);
 }
 h1 {
   margin: 1rem 0;
+  color: var(--primary-color);
 }
 h2 {
-  color: var(--secondary-color);
+  color: var(--primary-color);
   margin: 1rem 0;
 }
 h3 {
   font-size: 1.3rem;
-  color: var(--accent1-color);
+  color: var(--accent2-color);
   margin: 1rem 0;
 }
 p {
@@ -42,6 +44,16 @@ button {
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--accent1-color);
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  text-decoration: none;
+}
+button:hover {
+  background-color: var(--accent2-color);
+  color: var(--primary-color);
 }
 
 /* Header ***************/
@@ -152,10 +164,22 @@ nav .view-cart-button:hover {
     gap: 0;
   }
 }
+
 /* Main ***************/
 main {
   flex: 1;
   padding-bottom: 2rem;
+}
+#main-content {
+  margin: 3rem 5rem;
+}
+
+#hero-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Footer ***************/
@@ -225,4 +249,84 @@ footer ul li a:hover {
   .footer-social {
     margin-bottom: 0.5rem;
   }
+}
+
+/* Car Cards ***************/
+#car-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.car-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.car-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  width: 250px;
+  background: var(--accent6-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.car-card img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.car-card .car-title {
+  text-align: center;
+}
+
+.car-card .car-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.car-card .car-label {
+  text-align: left;
+  font-weight: bold;
+}
+
+.car-card .car-value {
+  text-align: right;
+  margin-left: 1rem;
+  flex: 1;
+}
+
+.car-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Contact Page ***************/
+.contact-office1 {
+  margin-left: 2rem;
+  i {
+    padding-right: 0.75rem;
+    color: var(--secondary-color);
+  }
+}
+.contact-map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+#map {
+  width: 80%;
+  height: auto;
+  align-self: center;
 }

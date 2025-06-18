@@ -11,14 +11,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script type="module" src="scripts/main.js"></script>
+  <script type="module" src="scripts/contact-map.mjs"></script>
 
   <title>Auto Web World Project</title>
 </head>
+
 <body>
   <header id="main-header"></header>
-  <main></main>
+  <main>
+    <div id="main-content">
+      <h1>Contact Us</h1>
+      <section class="contact-location">
+        <h2>Company Information</h2>
+        <div class="contact-office1">
+          <h3>Bountiful Office</h3>
+          <p>Open Hours: Mon-Fri 9am - 5pm</p>
+          <p><i class="fa fa-location-dot"></i>123 Game Ln, Fun City, UT 84010</p>
+          <p><i class="fa fa-phone"></i>(800) 555-5555</p>
+          <p><i class="fa fa-envelope"></i>info@basketballhoops.com</p>
+        </div>
+      </section>
+      <section class="contact-map">
+        <div id="map" style="height: 400px; margin-bottom: 1rem;"></div>
+        <button id="directions-btn">Get Directions to 123 Main Street, Bountiful, Utah</button>
+      </section>
+    </div>
+  </main>
   <footer id="main-footer"></footer>
 </body>
 </html>
