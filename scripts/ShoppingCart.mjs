@@ -29,7 +29,7 @@ function CartCardTemplate(item) {
 function renderEmptyCartMessage() {
   const emptyCartMessage = `
     <div class="cart-card__empty">
-      <img src="/images/shopping-cart.jpeg" alt="shopping cart">
+      <img src="images/shopping-cart.jpeg" alt="shopping cart">
       <h2>Your cart is empty</h2>
       <p>
         Looks like you haven't added<br>
