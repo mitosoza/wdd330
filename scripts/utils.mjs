@@ -125,20 +125,47 @@ export function loadCarCards(carsList) {
       const card = document.createElement('div');
       card.className = 'car-card';
       card.innerHTML = `
-        <div><img src="${car.image}" alt="${car.year} ${car.make} ${car.model}" loading="lazy"/></div>
-        <div class="car-title"><h2>${car.year} ${car.make} ${car.model}</h2></div>
-        <div class="car-field"><span class="car-label">Make</span><span class="car-value">${car.make}</span></div>
-        <div class="car-field"><span class="car-label">Model</span><span class="car-value">${car.model}</span></div>
-        <div class="car-field"><span class="car-label">Year</span><span class="car-value">${car.year}</span></div>
-        <div class="car-field"><span class="car-label">Type</span><span class="car-value">${car.type}</span></div>
-        <div class="car-field"><span class="car-label">Price</span><span class="car-value">$${car.price.toLocaleString()}</span></div>
-        <div class="car-field"><span class="car-label">Miles</span><span class="car-value">${car.miles.toLocaleString()}</span></div>
-        <div class="car-field"><span class="car-label">Transmission</span><span class="car-value">${car.transmission}</span></div>
-        <div class="car-field"><span class="car-label">Drivetrain</span><span class="car-value">${car.drivetrain}</span></div>
-        <div class="car-field"><span class="car-label">Title</span><span class="car-value">${car.title}</span></div>
+        <a href="car_details.html?carId=${car.id}">
+          <div><img src="${car.image}" alt="${car.year} ${car.make} ${car.model}" loading="lazy"/></div>
+          <div class="car-title"><h2>${car.year} ${car.make} ${car.model}</h2></div>
+          <div class="car-field"><span class="car-label">Make</span><span class="car-value">${car.make}</span></div>
+          <div class="car-field"><span class="car-label">Model</span><span class="car-value">${car.model}</span></div>
+          <div class="car-field"><span class="car-label">Year</span><span class="car-value">${car.year}</span></div>
+          <div class="car-field"><span class="car-label">Type</span><span class="car-value">${car.type}</span></div>
+          <div class="car-field"><span class="car-label">Price</span><span class="car-value">$${car.price.toLocaleString()}</span></div>
+          <div class="car-field"><span class="car-label">Miles</span><span class="car-value">${car.miles.toLocaleString()}</span></div>
+          <div class="car-field"><span class="car-label">Transmission</span><span class="car-value">${car.transmission}</span></div>
+          <div class="car-field"><span class="car-label">Drivetrain</span><span class="car-value">${car.drivetrain}</span></div>
+          <div class="car-field"><span class="car-label">Title</span><span class="car-value">${car.title}</span></div>
+        </a>
       `;
       rowDiv.appendChild(card);
     }
     container.appendChild(rowDiv);
   }
+}
+
+export function loadCarDetails(carDetails) {
+  const container = document.getElementById('car-details-container');
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="car-details-row">
+      <div class="car-details-image-col">
+        <img src="${carDetails.image}" alt="${carDetails.year} ${carDetails.make} ${carDetails.model}" width="650" height="488" style="object-fit:cover;"/>
+      </div>
+      <div class="car-details-info-col">
+        <h1 class="car-details-title">${carDetails.year} ${carDetails.make} ${carDetails.model}</h1>
+        <div class="car-details-price">$${carDetails.price.toLocaleString()}</div>
+        <div class="car-details-fields">
+          <div class="car-field"><span class="car-label">Type</span><span class="car-value">${carDetails.type}</span></div>
+          <div class="car-field"><span class="car-label">Miles</span><span class="car-value">${carDetails.miles.toLocaleString()}</span></div>
+          <div class="car-field"><span class="car-label">Transmission</span><span class="car-value">${carDetails.transmission}</span></div>
+          <div class="car-field"><span class="car-label">Drivetrain</span><span class="car-value">${carDetails.drivetrain}</span></div>
+          <div class="car-field"><span class="car-label">Title</span><span class="car-value">${carDetails.title}</span></div>
+        </div>
+        <button id="addToCart">Add to Cart</button>
+      </div>
+    </div>
+  `;
 }
